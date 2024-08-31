@@ -1,12 +1,14 @@
 <script>
   import { goto } from "$app/navigation";
+import { authenticate } from '../../generated';
 
-  const handleLogin = () => {
-    console.log("Login button clicked");
-    
-    localStorage.setItem('authToken', 'alieudflaieuflkjlkhh');
+let mobile_number = "";
+let password = "";
 
-    goto('/chat');
+const handleLogin = async () => {
+    const authenticateRes = await authenticate({
+      
+    })
   }
 </script>
 
@@ -19,13 +21,13 @@
       <h3 class="login-page__form-title">Вход</h3>
       <div class="login-page__form-group">
         <label class="login-page__form-label" for="mobile_number">Номер телефона</label>
-        <input class="login-page__form-field" placeholder="+78651334455" name="mobile_number" type="text">
+        <input bind:value={mobile_number} class="login-page__form-field" placeholder="+78651334455" name="mobile_number" type="text">
       </div>
       <div class="login-page__form-group">
-        <label class="login-page__form-label" for="зфыыцщкв">Пароль</label>
-        <input class="login-page__form-field" placeholder="Введите пароль" name="password" type="password">
+        <label class="login-page__form-label" for="password">Пароль</label>
+        <input bind:value={password} class="login-page__form-field" placeholder="Введите пароль" name="password" type="password">
       </div>
-      <button class="login-page__button" on:click={handleLogin}>
+      <button type="button" class="login-page__button" on:click={handleLogin}>
         Войти
       </button>
     </form>
