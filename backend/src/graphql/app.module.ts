@@ -1,23 +1,27 @@
 import { Module } from '@nestjs/common';
 import { AppService } from './app.service';
-import { GraphQLSettingModule } from './graphql/graphql.module';
-import { AppController } from './app.controller';
-
-/* Modules */
-import { ChatModule } from './graphql/chat/chat.module';
-import { UsersModule } from './graphql/users/users.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
+
+/** Settings Modules */
+import { GraphQLSettingModule } from './graphql.module';
+import { ConfigModuleSettings, TypeOrmModulesSettings } from './db.module';
+
+/** Modules */
+import { ChatModule } from './chat/chat.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
     GraphQLSettingModule,
+    ConfigModuleSettings,
+    TypeOrmModulesSettings,
     ChatModule,
     UsersModule,
     ServeStaticModule.forRoot({
       rootPath: `${process.cwd()}/public`,
     }),
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [AppService],
 })
 export class AppModule {}
