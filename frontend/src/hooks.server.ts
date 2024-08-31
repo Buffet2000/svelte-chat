@@ -1,9 +1,20 @@
 import type { Handle } from '@sveltejs/kit';
-import { getSession } from './session';
+import { parse } from 'cookie';
 
 export const handle: Handle = async ({ event, resolve }) => {
-    const session = await getSession(event);
-    event.locals.user = session.user;
+    // Пример получения токена из cookies (вы можете использовать любой другой способ)
+    const cookies = parse(event.request.headers.get('cookie') || '');
+    const authToken = cookies.authToken || '';
 
-    return await resolve(event);
+    let user = null;
+
+    // Проверка токена и установка user
+    if (authToken) {
+        // Имитация получения пользователя из токена (замените на вашу логику)
+        user = { id: 'user-id', name: 'User Name' }; // Получите данные пользователя по токену
+    }
+
+    event.locals.user = user;
+
+    return resolve(event);
 };

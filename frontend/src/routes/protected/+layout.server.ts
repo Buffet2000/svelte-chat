@@ -1,4 +1,3 @@
-// src/routes/protected/+layout.server.ts
 import type { LayoutServerLoad } from './$types';
 import { redirect } from '@sveltejs/kit';
 
