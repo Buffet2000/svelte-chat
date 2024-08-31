@@ -7,8 +7,7 @@
   
 </script>
 
-<!-- Navbar -->
-<div>
+<div id="app">
+  <slot />
 </div>
 
-<slot></slot>

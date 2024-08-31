@@ -1,10 +1,11 @@
-<script>
+<script lang="ts">
   import ChatLayout from "../../lib/components/ChatLayout.svelte";
   import Message from "../../lib/components/Message.svelte";
 
+  export let user: { id: string; name: string } | null;
 
   const imageUrl = '../src/assets/girl-face.png';
-  const name = 'Пантера Пантеровна'
+  const name = user?.name ?? 'Анонимный пользователь'; // Используем имя пользователя, если он авторизован
 </script>
 
 <style>
@@ -41,7 +42,7 @@
 
 <ChatLayout name={name} imageUrl={imageUrl}>
   <div class='chat'>
-    <Message avatarImageUrl={imageUrl} text='Прикинь, что вчера былою...' />
+    <Message avatarImageUrl={imageUrl} text='Прикинь, что вчера было...' />
     <Message text='Ну, давай, рассказывай! Я готов! :))' />
     <Message
       avatarImageUrl={imageUrl}
