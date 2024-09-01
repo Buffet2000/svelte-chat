@@ -16,7 +16,7 @@
 		"@graphql-codegen/typescript-operations": "^4.2.3",
 		"@kitql/graphql-codegen": "^0.5.4",
 		"@sveltejs/adapter-static": "^3.0.4",
-		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/kit": "^2.5.25",
 		"@sveltejs/vite-plugin-svelte": "^3.0.0",
 		"graphql-codegen-svelte-apollo": "^1.1.0",
 		"svelte": "^4.2.7",

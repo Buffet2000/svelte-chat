@@ -1,20 +1,21 @@
-<script>
+<script lang="ts">
+
   import { goto } from "$app/navigation";
-import { authenticate } from '../../generated';
+  import { authenticate } from 'src/generated';
 
-let mobile_number = "";
-let password = "";
+  let mobile_number = "";
+  let password = "";
 
-const handleLogin = async () => {
+  const handleLogin = async () => {
     const authenticateRes = await authenticate({
-      
+
     })
   }
 </script>
 
 <div class="login-page">
   <div class="image-column">
-    <img src="../src/assets/texting.png" class="image-column__img" alt="people texting" />
+    <img src="src/assets/texting.png" class="image-column__img" alt="people texting" />
   </div>
   <div class="form-column">
     <form class="login-page__form">
@@ -22,12 +23,13 @@ const handleLogin = async () => {
       <div class="login-page__form-group">
         <label class="login-page__form-label" for="mobile_number">Номер телефона</label>
         <input bind:value={mobile_number} class="login-page__form-field" placeholder="+78651334455" name="mobile_number" type="text">
+        <p style="color: black;">Вы ввели: {mobile_number}</p>
       </div>
       <div class="login-page__form-group">
         <label class="login-page__form-label" for="password">Пароль</label>
         <input bind:value={password} class="login-page__form-field" placeholder="Введите пароль" name="password" type="password">
       </div>
-      <button type="button" class="login-page__button" on:click={handleLogin}>
+      <button type="button" class="login-page__button">
         Войти
       </button>
     </form>
