@@ -1,4 +1,4 @@
-import client from "./client.ts";
+import client from "./client";
 import type {
         MutationOptions
       } from "@apollo/client";
