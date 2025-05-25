@@ -8,8 +8,12 @@
 
   const handleLogin = async () => {
     const authenticateRes = await authenticate({
-
+      variables: {
+        mobile_number,
+        password
+      }
     })
+    console.log("Ответ сервера:", authenticateRes);
   }
 </script>
 
@@ -20,22 +24,36 @@
   <div class="form-column">
     <form class="login-page__form">
       <h3 class="login-page__form-title">Вход</h3>
+
       <div class="login-page__form-group">
         <label class="login-page__form-label" for="mobile_number">Номер телефона</label>
-        <input bind:value={mobile_number} class="login-page__form-field" placeholder="+78651334455" name="mobile_number" type="text">
-        <p style="color: black;">Вы ввели: {mobile_number}</p>
+        <input
+          id="mobile_number"
+          name="mobile_number"
+          bind:value={mobile_number}
+          class="login-page__form-field"
+          placeholder="+78651334455"
+          type="text"
+        />
       </div>
+
       <div class="login-page__form-group">
         <label class="login-page__form-label" for="password">Пароль</label>
-        <input bind:value={password} class="login-page__form-field" placeholder="Введите пароль" name="password" type="password">
+        <input
+          id="password"
+          name="password"
+          bind:value={password}
+          class="login-page__form-field"
+          placeholder="Введите пароль"
+          type="password"
+        />
       </div>
-      <button type="button" class="login-page__button">
+
+      <button type="button" class="login-page__button" on:click={handleLogin}>
         Войти
       </button>
     </form>
   </div>
-  
-
 </div>
 
 <style lang="scss">
