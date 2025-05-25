@@ -8,4 +8,5 @@ export const GraphQLSettingModule = GraphQLModule.forRoot<ApolloDriverConfig>({
     path: `${process.cwd()}/src/graphql.ts`,
   },
   playground: true,
+  csrfPrevention: false,
 });
